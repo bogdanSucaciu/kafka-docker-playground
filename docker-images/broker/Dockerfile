@@ -43,6 +43,7 @@ RUN curl -fSL -o /tmp/kafka.tgz $(curl --stderr /dev/null https://www.apache.org
 RUN echo "$SHA512HASH /tmp/kafka.tgz" | sha512sum -c - &&\
     tar -xzf /tmp/kafka.tgz -C $KAFKA_HOME --strip-components 1 &&\
     rm -f /tmp/kafka.tgz
+    
 
 COPY ./log4j.properties $KAFKA_HOME/config/log4j.properties
 RUN mkdir $KAFKA_HOME/config.orig &&\
